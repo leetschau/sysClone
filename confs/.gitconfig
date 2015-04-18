@@ -1,0 +1,10 @@
+[user]
+	name = leetschau
+	email = leetschau@gmail.com
+[alias]
+	ci = commit -s
+  co = checkout
+  br = branch
+  lg = log --stat --graph --decorate --all
+[push]
+	default = simple
