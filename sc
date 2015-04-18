@@ -25,18 +25,6 @@ restoreConf() {
   done
 }
 
-
-backupConf2() {
-    rsync -av --update --ignore-missing-args $HOME/{.zshrc,.zshenv,.bash_aliases,.vimrc,.gitconfig,.tmux.conf,.oh-my-zsh/themes/lichao.zsh-theme,.xsessionrc} confs/
-    rsync -av --update --ignore-missing-args $HOME/.i3/config confs/.i3.config
-}
-
-restoreConf2() {
-    rsync -av --update confs/{.zshrc,.zshenv,.bash_aliases,.vimrc,.gitconfig,.tmux.conf,.xsessionrc} $HOME
-    rsync -av --update confs/lichao.zsh-theme $HOME/.oh-my-zsh/themes
-    rsync -av --update confs/.i3.config $HOME/.i3/config
-}
-
 OLDIFS=$IFS
 IFS=' '
 
