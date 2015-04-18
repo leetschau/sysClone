@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rsync -av --update --ignore-missing-args $HOME/{.zshrc,.zshenv,.vimrc,.gitconfig,.tmux.conf,.oh-my-zsh/themes/lichao.zsh-theme,.xsessionrc} confs/
+rsync -av --update --ignore-missing-args $HOME/{.zshrc,.zshenv,.bash_aliases,.vimrc,.gitconfig,.tmux.conf,.oh-my-zsh/themes/lichao.zsh-theme,.xsessionrc} confs/
 rsync -av --update --ignore-missing-args $HOME/.i3/config confs/.i3.config

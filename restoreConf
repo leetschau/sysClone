@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rsync -av --update confs/{.zshrc,.zshenv,.bash_aliases,.vimrc,.gitconfig,.tmux.conf,.xsessionrc} $HOME
+rsync -av --update confs/lichao.zsh-theme $HOME/.oh-my-zsh/themes
+rsync -av --update confs/.i3.config $HOME/.i3/config
