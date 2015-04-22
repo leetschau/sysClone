@@ -1,0 +1,30 @@
+#!/bin/sh
+lock() {
+    i3lock -c 000000
+}
+
+case "$1" in
+    lk)
+        lock
+        ;;
+    logout)
+        i3-msg exit
+        ;;
+    ssd)
+        lock && sudo pm-suspend-hybrid
+        ;;
+    hibernate)
+        lock && sudo pm-hibernate
+        ;;
+    rbt)
+        sudo reboot
+        ;;
+    shd)
+        sudo poweroff
+        ;;
+    *)
+        echo "Usage: $0 {lk|logout|ssd|hibernate|rbt|shd}"
+        exit 2
+esac
+
+exit 0
