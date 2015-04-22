@@ -30,7 +30,7 @@ restoreConf() {
     fi
     rsync -avu ${CONF_DIR}/$src $HOME/$1
   done
-  rsync -avu $SCRIPT_DIR $APP_HOME/$SCRIPT_DIR
+  rsync -avu $SCRIPT_DIR $APP_HOME
 }
 
 OLDIFS=$IFS
