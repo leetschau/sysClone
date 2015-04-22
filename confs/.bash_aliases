@@ -1,11 +1,5 @@
 alias va='vagrant'
-alias vau='vagrant up'
-alias vas='vagrant status'
-alias vap='vagrant provision'
-alias vah='vagrant halt'
-alias vad='vagrant destroy'
-alias vass='vagrant ssh'
-alias lrvm='VBoxManage list runningvms'
+alias vb='VBoxManage'
 alias sa='scrapy'
 
 alias gst='git status'
