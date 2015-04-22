@@ -36,9 +36,10 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'Markdown'
 Plugin 'xmledit'
+Plugin 'The-NERD-Commenter'
+Plugin 'ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'The-NERD-Commenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
