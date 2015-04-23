@@ -18,11 +18,11 @@ PATH=$PATH:$HOME/apps/node-v0.10.33-linux-x64/bin
 # newfairs
 PATH=$PATH:$HOME/apps/newfairs
 
-# rvm, for octopress
-PATH=$PATH:$HOME/.rvm/bin
-source ~/.rvm/scripts/rvm
-
 export PATH
+
+# rvm, for octopress
+# PATH=$PATH:$HOME/.rvm/bin
+# source ~/.rvm/scripts/rvm
 
 # Dart
 # PATH=$HOME/apps/dart-1.6.0/dart-sdk/bin:$PATH

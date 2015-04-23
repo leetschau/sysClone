@@ -8,7 +8,7 @@ configs=(".zshrc" ".zshenv" ".bash_aliases" ".vimrc" ".gitconfig"\
 APP_HOME="$HOME/apps"
 
 # app-defined section
-CONF_DIR="confs"
+CONF_DIR="$APP_HOME/sysClone/confs"
 SCRIPT_DIR="myscripts"
 
 # functions
@@ -18,7 +18,7 @@ backupConf() {
     set $i
     rsync -avu --ignore-missing-args $HOME/$1 ${CONF_DIR}/$2
   done
-  rsync -avu --ignore-missing-args $APP_HOME/$SCRIPT_DIR .
+  rsync -avu --ignore-missing-args $SCRIPT_DIR .
 }
 
 restoreConf() {
