@@ -5,3 +5,4 @@ mkdir $HOME/apps
 git clone https://github.com/leetschau/sysClone.git $HOME/apps/sysClone
 $HOME/apps/sysClone/sc res
 vim +PluginInstall +qall
+chsh -s /bin/zsh
