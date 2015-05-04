@@ -3,4 +3,9 @@ deb http://mirrors.ustc.edu.cn/ubuntu/ trusty main universe restricted multivers
 deb-src http://mirrors.ustc.edu.cn/ubuntu/ trusty main universe restricted multiverse
 EOF
 aptitude update
-aptitude install -y zsh git vim autojump curl tree tmux
+aptitude install -y zsh git vim autojump curl tree tmux git-flow
+
+# run the following srcipts only for VM provision
+HOSTNAME=meteorBox
+cat $HOSTNAME > /etc/hostname
+hostname $HOSTNAME

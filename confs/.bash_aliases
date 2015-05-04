@@ -3,8 +3,8 @@ alias vb='VBoxManage'
 alias sa='scrapy'
 
 alias gst='git status'
-alias dn='/home/chad/apps/dsnote/donshell.sh'
-alias mc='/home/chad/apps/my-calculator.sh'
+alias dn="$HOME/apps/dsnote/donshell.sh"
+alias mc="$HOME/apps/my-calculator.sh"
 alias mongod="mongod --config $HOME/docs/mongoHome/mongo.conf"
 
 function briss(){
