@@ -29,6 +29,16 @@ To restore configurations in this repository to a new OS:
 
 For command format help: `./sc`.
 
+# Build Environment on Physical Host
+
+In a new Linux system, build your environment in the following steps:
+
+1. Copy scripts in vm/packages.sh except the part of setting up the hostname, run them as root;
+
+1. Create the main user, say "chad": `useradd -m -s /bin/zsh -G sudo chad`;
+
+1. Login as "chad" created above, run scripts in vm/provision.sh;
+
 # Build Virtual Linux Environment
 
 ## Windows

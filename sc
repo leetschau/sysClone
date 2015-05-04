@@ -16,9 +16,9 @@ SCRIPT_DIR="myscripts"
 backupConf() {
   for i in "${configs[@]}"; do
     set $i
-    rsync -avu --ignore-missing-args $HOME/$1 ${CONF_DIR}/$2
+    rsync -av --ignore-missing-args $HOME/$1 ${CONF_DIR}/$2
   done
-  rsync -avu --ignore-missing-args $SCRIPT_DIR .
+  rsync -av --ignore-missing-args $SCRIPT_DIR .
 }
 
 restoreConf() {
