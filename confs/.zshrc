@@ -10,6 +10,8 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="rkj"
 ZSH_THEME="lichao"
 
+bindkey -v
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

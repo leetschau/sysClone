@@ -5,13 +5,27 @@ alias sa='scrapy'
 alias gst='git status'
 alias dn="$HOME/apps/dsnote/donshell.sh"
 alias mc="$HOME/apps/my-calculator.sh"
-alias mongod="mongod --config $HOME/docs/mongoHome/mongo.conf"
+alias sv="$HOME/apps/sshuttle/sshuttle --dns -r root@newfairs.cn 0/0"
 
-function briss(){
+# add path of mongod of this user into sudo PATH, so you can run mongod as `sudo mongod`:
+alias mongod='sudo env PATH=$PATH mongod'
+alias npm='sudo env PATH=$PATH npm'
+alias -s pdf=evince
+
+
+# tmux shortcuts
+alias tl='tmux ls'
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
+
+briss(){
   java -jar $HOME/apps/briss-0.9/briss-0.9.jar $1
 }
 
-function ctls(){
+
+# csv file probe
+
+ctls(){
   if test $# -eq 3; then
     csvtool drop $2 $1 | csvtool take $3 -
   else
@@ -20,3 +34,21 @@ function ctls(){
   fi
 }
 
+pc(){
+  if test $# -eq 2; then
+    lines="NR==1||NR==$1"
+    awk $lines $2
+  else
+    echo pc: print csv header and the Nth row
+    echo Synopsis: pc N filename.csv
+  fi
+}
+
+pj(){
+  if test $# -eq 2; then
+    pc $1 $2 | csvjson -i 4
+  else
+    echo pc: print csv header and the Nth row in json format
+    echo Synopsis: pj N filename.csv
+  fi
+}

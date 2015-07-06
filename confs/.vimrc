@@ -34,18 +34,18 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Markdown'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'xmledit'
 Plugin 'The-NERD-Commenter'
 Plugin 'ctrlp.vim'
 Plugin 'bling/vim-airline'
-Plugin 'kchmck/vim-coffee-script'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " ------ Deprecated ------ "
+" Plugin 'kchmck/vim-coffee-script'
 " noremap <left> <C-w>h
 " noremap <right> <C-w>l
 " noremap <up> <C-w>k
