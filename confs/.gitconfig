@@ -8,3 +8,5 @@
   lg = log --stat --graph --decorate --all
 [push]
 	default = simple
+[color]
+	ui = auto
