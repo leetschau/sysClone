@@ -8,8 +8,7 @@ alias mc="$HOME/apps/my-calculator.sh"
 alias sv="$HOME/apps/sshuttle/sshuttle --dns -r root@106.184.7.58 0/0"
 
 # add path of mongod of this user into sudo PATH, so you can run mongod as `sudo mongod`:
-alias mongod='sudo env PATH=$PATH mongod'
-# alias npm='sudo env PATH=$PATH npm'
+# alias mongod='sudo env PATH=$PATH mongod'
 alias -s pdf=evince
 
 
