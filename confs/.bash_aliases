@@ -6,6 +6,7 @@ alias ga='git add -A'
 alias gb='git branch'
 alias gc='git commit -m'
 alias gd='git diff'
+alias gl='git log --stat'
 alias go='git checkout '
 
 alias dn="$HOME/apps/dsnote/donshell.sh"
