@@ -18,22 +18,36 @@ set ts=2
 set nu
 set nowrap
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
 " status line
 set laststatus=2
 let g:airline_section_c='%F'
-"let g:airline_section_z='%{fugitive#statusline()}'
 
 " markdown
 let g:vim_markdown_initial_foldlevel=2
 
 " NerdTree
 " define open/close shortcut
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close NERDTree when all files closed:
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+nnoremap <C-a> :CtrlPBuffer<CR>
+
+" hdevtools setup (haskell)
+au FileType haskell nnoremap <buffer> <F3> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsClear<CR>
 
 filetype off   " required
 
@@ -41,13 +55,10 @@ filetype off   " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" hdevtools setup (haskell)
-au FileType haskell nnoremap <buffer> <F3> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsClear<CR>
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" ====== User Defined Plugins ======
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'xmledit'
 Plugin 'The-NERD-Commenter'
@@ -59,9 +70,10 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" ====== End User Defined Plugins ======
+call vundle#end()
+
+filetype plugin indent on
 
 " ------ Deprecated ------ "
 " Plugin 'kchmck/vim-coffee-script'
@@ -69,7 +81,3 @@ filetype plugin indent on    " required
 " noremap <right> <C-w>l
 " noremap <up> <C-w>k
 " noremap <down> <C-w>j
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>

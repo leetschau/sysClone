@@ -1,8 +1,13 @@
 alias va='vagrant'
 alias vb='VBoxManage'
-alias sa='scrapy'
 
-alias gst='git status'
+alias gs='git status'
+alias ga='git add -A'
+alias gb='git branch'
+alias gc='git commit -m'
+alias gd='git diff'
+alias go='git checkout '
+
 alias dn="$HOME/apps/dsnote/donshell.sh"
 alias mc="$HOME/apps/my-calculator.sh"
 alias sv="$HOME/apps/sshuttle/sshuttle --dns -r root@106.184.7.58 0/0"
