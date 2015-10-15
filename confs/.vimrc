@@ -33,7 +33,6 @@ vnoremap <Tab> <Esc>gV
 onoremap <Tab> <Esc>
 inoremap <Tab> <Esc>`^
 inoremap <Leader><Tab> <Tab>
-"inoremap jk <ESC>
 
 " tab switching shortcuts
 noremap <leader>1 1gt
@@ -54,15 +53,16 @@ set laststatus=2
 let g:airline_section_c='%F'
 let g:airline_section_z='%{ObsessionStatus()}'
 
+" Customize tabline
+hi TabLineFill term=bold cterm=bold ctermbg=0
+hi TabLine ctermfg=Yellow
+
 " markdown
 let g:vim_markdown_initial_foldlevel=2
 
 " NerdTree
 " define open/close shortcut
 nnoremap <C-n> :NERDTreeToggle<CR>
-" open a NERDTree automatically when vim starts up if no files were specified
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close NERDTree when all files closed:
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
