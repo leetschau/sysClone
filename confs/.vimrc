@@ -22,14 +22,37 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
+nnoremap <Tab> <Esc>
+vnoremap <Tab> <Esc>gV
+onoremap <Tab> <Esc>
+inoremap <Tab> <Esc>`^
+inoremap <Leader><Tab> <Tab>
+"inoremap jk <ESC>
+
+" tab switching shortcuts
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<CR>
+
+cabbrev ss set spell<CR>
+
 " status line
 set laststatus=2
 let g:airline_section_c='%F'
+let g:airline_section_z='%{ObsessionStatus()}'
 
 " markdown
 let g:vim_markdown_initial_foldlevel=2
@@ -38,8 +61,8 @@ let g:vim_markdown_initial_foldlevel=2
 " define open/close shortcut
 nnoremap <C-n> :NERDTreeToggle<CR>
 " open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close NERDTree when all files closed:
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -48,6 +71,10 @@ nnoremap <C-a> :CtrlPBuffer<CR>
 " hdevtools setup (haskell)
 au FileType haskell nnoremap <buffer> <F3> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsClear<CR>
+
+" Taboo
+set sessionoptions+=tabpages,globals
+cabbrev tr TabooRename
 
 filetype off   " required
 
@@ -69,15 +96,10 @@ Plugin 'bitc/vim-hdevtools'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
+Plugin 'gcmt/taboo.vim'
+Plugin 'tpope/vim-obsession'
 
 " ====== End User Defined Plugins ======
 call vundle#end()
 
 filetype plugin indent on
-
-" ------ Deprecated ------ "
-" Plugin 'kchmck/vim-coffee-script'
-" noremap <left> <C-w>h
-" noremap <right> <C-w>l
-" noremap <up> <C-w>k
-" noremap <down> <C-w>j
