@@ -18,6 +18,9 @@ set ts=2
 set nu
 set nowrap
 
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -27,12 +30,6 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-
-nnoremap <Tab> <Esc>
-vnoremap <Tab> <Esc>gV
-onoremap <Tab> <Esc>
-inoremap <Tab> <Esc>`^
-inoremap <Leader><Tab> <Tab>
 
 " tab switching shortcuts
 noremap <leader>1 1gt
@@ -47,6 +44,14 @@ noremap <leader>9 9gt
 noremap <leader>0 :tablast<CR>
 
 cabbrev ss set spell<CR>
+
+" JavaScript code folding
+set foldmethod=syntax
+set foldlevelstart=3
+let javaScript_fold=1
+
+" Ag: grep utility
+let g:ag_highlight=1
 
 " status line
 set laststatus=2
@@ -72,10 +77,14 @@ nnoremap <C-a> :CtrlPBuffer<CR>
 au FileType haskell nnoremap <buffer> <F3> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsClear<CR>
 
-" Taboo
+" Taboo: tab page rename
 set sessionoptions+=tabpages,globals
 cabbrev tr TabooRename
 
+" Ultisnips for vim snippets
+let g:UltiSnipsEditSplit='vertical'
+
+" ====== Vundle Start =======
 filetype off   " required
 
 " set the runtime path to include Vundle and initialize
@@ -93,11 +102,16 @@ Plugin 'ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'bitc/vim-hdevtools'
-Plugin 'dkprice/vim-easygrep'
+Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'gcmt/taboo.vim'
 Plugin 'tpope/vim-obsession'
+Plugin 'mattn/emmet-vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'pangloss/vim-javascript'
+Plugin 'digitaltoad/vim-jade'
 
 " ====== End User Defined Plugins ======
 call vundle#end()
