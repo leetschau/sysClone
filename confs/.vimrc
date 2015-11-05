@@ -18,7 +18,7 @@ set ts=2
 set nu
 set nowrap
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+highlight OverLength ctermfg=cyan guibg=#592929
 match OverLength /\%81v.\+/
 
 nnoremap <C-J> <C-W><C-J>
