@@ -47,7 +47,7 @@ cabbrev ss set spell<CR>
 
 " JavaScript code folding
 set foldmethod=syntax
-set foldlevelstart=3
+set foldlevelstart=4
 let javaScript_fold=1
 
 " Ag: grep utility
@@ -83,6 +83,9 @@ cabbrev tr TabooRename
 
 " Ultisnips for vim snippets
 let g:UltiSnipsEditSplit='vertical'
+
+" syntastic configs
+let g:syntastic_javascript_checkers = ['gjslint']
 
 " ====== Vundle Start =======
 filetype off   " required

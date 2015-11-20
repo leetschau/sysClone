@@ -4,10 +4,10 @@ alias vb='VBoxManage'
 alias gs='git status'
 alias ga='git add -A'
 alias gb='git branch'
-alias gc='git commit -m'
+alias gci='git commit'
 alias gd='git diff'
 alias gl='git log --stat --decorate'
-alias go='git checkout'
+alias gco='git checkout'
 
 alias dn="$HOME/apps/dsnote/donshell.sh"
 alias mc="$HOME/apps/my-calculator.sh"

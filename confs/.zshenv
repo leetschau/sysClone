@@ -8,3 +8,7 @@ source $HOME/.rvm/scripts/rvm
 # haskell
 PATH=$PATH:$HOME/.stack/programs/x86_64-linux/ghc-7.10.2/bin:$HOME/.local/bin
 export PATH
+
+# go
+#export GOROOT=$HOME/apps/go
+#export PATH=$PATH:$GOROOT/bin
