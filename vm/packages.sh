@@ -6,6 +6,6 @@ aptitude update
 aptitude install -y zsh git vim autojump curl tree tmux git-flow
 
 # run the following srcipts only for VM provision
-HOSTNAME=meteorBox
+HOSTNAME=workserver
 cat $HOSTNAME > /etc/hostname
-hostname $HOSTNAME
+hostname -F $HOSTNAME

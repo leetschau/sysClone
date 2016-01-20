@@ -67,7 +67,7 @@ let g:vim_markdown_initial_foldlevel=2
 
 " NerdTree
 " define open/close shortcut
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeTabsToggle<CR>
 " close NERDTree when all files closed:
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -115,6 +115,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'pangloss/vim-javascript'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 " ====== End User Defined Plugins ======
 call vundle#end()
