@@ -55,8 +55,9 @@ let g:ag_highlight=1
 
 " status line
 set laststatus=2
-let g:airline_section_c='%F'
-let g:airline_section_z='%{ObsessionStatus()}'
+let g:airline_theme='badwolf'
+" let g:airline_section_c='%F'
+" let g:airline#extensions#tabline#enabled = 1
 
 " Customize tabline
 hi TabLineFill term=bold cterm=bold ctermbg=0
@@ -102,7 +103,6 @@ Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'xmledit'
 Plugin 'The-NERD-Commenter'
 Plugin 'ctrlp.vim'
-Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'bitc/vim-hdevtools'
 Plugin 'rking/ag.vim'
@@ -118,6 +118,8 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " ====== End User Defined Plugins ======
 call vundle#end()
 
