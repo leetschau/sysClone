@@ -77,6 +77,7 @@ nnoremap <C-a> :CtrlPBuffer<CR>
 " hdevtools setup (haskell)
 au FileType haskell nnoremap <buffer> <F3> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
 
 " Taboo: tab page rename
 set sessionoptions+=tabpages,globals
