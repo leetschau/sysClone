@@ -79,6 +79,8 @@ au FileType haskell nnoremap <buffer> <F3> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
 
+cabbrev stm SyntasticToggleMode<CR>
+
 " Taboo: tab page rename
 set sessionoptions+=tabpages,globals
 cabbrev tr TabooRename
@@ -118,9 +120,10 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
-
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'elixir-lang/vim-elixir'
 " ====== End User Defined Plugins ======
 call vundle#end()
 
