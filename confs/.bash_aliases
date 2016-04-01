@@ -12,11 +12,13 @@ alias gco='git checkout'
 alias dn="$HOME/apps/dsnote/donshell.sh"
 alias mc="$HOME/apps/my-calculator.sh"
 alias sv="$HOME/apps/sshuttle/sshuttle --dns -r root@106.184.7.58 0/0"
+alias qv="sudo pon qingCloundVPN persist"
 
 # add path of mongod of this user into sudo PATH, so you can run mongod as `sudo mongod`:
 # alias mongod='sudo env PATH=$PATH mongod'
 alias -s pdf=evince
 
+alias variety='/home/leo/apps/node-v5.4.1-linux-x64/bin/variety'
 
 # tmux shortcuts
 alias tl='tmux ls'

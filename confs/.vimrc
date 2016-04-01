@@ -45,6 +45,8 @@ noremap <leader>0 :tablast<CR>
 
 cabbrev ss set spell<CR>
 
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+
 " JavaScript code folding
 set foldmethod=syntax
 set foldlevelstart=4
