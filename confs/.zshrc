@@ -64,3 +64,6 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
+
+# Python Virtual Env
+source /usr/local/bin/virtualenvwrapper.sh

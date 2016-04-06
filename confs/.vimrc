@@ -66,7 +66,11 @@ hi TabLineFill term=bold cterm=bold ctermbg=0
 hi TabLine ctermfg=Yellow
 
 " markdown
-let g:vim_markdown_initial_foldlevel=2
+let g:vim_markdown_initial_foldlevel=1
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
 
 " NerdTree
 " define open/close shortcut
