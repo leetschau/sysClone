@@ -5,7 +5,7 @@ set splitbelow
 set splitright
 nnoremap <F2> :set wrap!<CR>
 let mapleader=","
-
+let maplocalleader = ","
 set nobackup
 set noswapfile
 
@@ -45,7 +45,14 @@ noremap <leader>0 :tablast<CR>
 
 cabbrev ss set spell<CR>
 
+" for vim-fireplace (clojure plugin)
+autocmd FileType clojure nnoremap <buffer> <F5> :Eval<CR>
+autocmd FileType clojure nnoremap <buffer> <F6> :%Eval<CR>
+
+
 let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_flake8_exec = 'python3'
+let g:syntastic_python_flake8_args = ['-m', 'flake8']
 
 " JavaScript code folding
 set foldmethod=syntax
@@ -109,27 +116,35 @@ Plugin 'gmarik/Vundle.vim'
 
 " ====== User Defined Plugins ======
 Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'xmledit'
+" Plugin 'xmledit'
 Plugin 'The-NERD-Commenter'
 Plugin 'ctrlp.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'bitc/vim-hdevtools'
+" Plugin 'bitc/vim-hdevtools'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'gcmt/taboo.vim'
+" Plugin 'gcmt/taboo.vim'
 Plugin 'tpope/vim-obsession'
-Plugin 'mattn/emmet-vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'pangloss/vim-javascript'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'pearofducks/ansible-vim'
+" Plugin 'mattn/emmet-vim'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'digitaltoad/vim-jade'
+" Plugin 'pearofducks/ansible-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'elixir-lang/vim-elixir'
+" Plugin 'derekwyatt/vim-scala'
+" Plugin 'elixir-lang/vim-elixir'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-repeat'
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'venantius/vim-cljfmt'
 " ====== End User Defined Plugins ======
 call vundle#end()
 

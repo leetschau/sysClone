@@ -21,3 +21,6 @@ PATH=$PATH:$HOME/apps/VSCode-linux-x64
 # Python Virtual Environment
 WORKON_HOME=~/docs/workspace/python-workspace/env-home
 PROJECT_HOME=~/docs/workspace/python-workspace/project-home
+
+# lein for clojure
+PATH=$PATH:$HOME/.lein
