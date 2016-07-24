@@ -50,9 +50,9 @@ autocmd FileType clojure nnoremap <buffer> <F5> :Eval<CR>
 autocmd FileType clojure nnoremap <buffer> <F6> :%Eval<CR>
 
 
-let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_flake8_exec = 'python3'
-let g:syntastic_python_flake8_args = ['-m', 'flake8']
+"let g:syntastic_python_python_exec = '/usr/bin/python3'
+"let g:syntastic_python_flake8_exec = 'python3'
+"let g:syntastic_python_flake8_args = ['-m', 'flake8']
 
 " JavaScript code folding
 set foldmethod=syntax
@@ -102,7 +102,8 @@ cabbrev tr TabooRename
 let g:UltiSnipsEditSplit='vertical'
 
 " syntastic configs
-let g:syntastic_javascript_checkers = ['gjslint']
+"let g:syntastic_javascript_checkers = ['gjslint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " ====== Vundle Start =======
 filetype off   " required
@@ -116,27 +117,17 @@ Plugin 'gmarik/Vundle.vim'
 
 " ====== User Defined Plugins ======
 Plugin 'jtratner/vim-flavored-markdown'
-" Plugin 'xmledit'
 Plugin 'The-NERD-Commenter'
 Plugin 'ctrlp.vim'
 Plugin 'scrooloose/syntastic'
-" Plugin 'bitc/vim-hdevtools'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
-" Plugin 'gcmt/taboo.vim'
 Plugin 'tpope/vim-obsession'
-" Plugin 'mattn/emmet-vim'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'digitaltoad/vim-jade'
-" Plugin 'pearofducks/ansible-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'derekwyatt/vim-scala'
-" Plugin 'elixir-lang/vim-elixir'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-classpath'
 Plugin 'guns/vim-clojure-static'
@@ -145,6 +136,7 @@ Plugin 'guns/vim-sexp'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'venantius/vim-cljfmt'
+Plugin 'leetschau/tmuxcmd'
 " ====== End User Defined Plugins ======
 call vundle#end()
 
