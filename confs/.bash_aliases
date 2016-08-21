@@ -7,6 +7,7 @@ alias gb='git branch'
 alias gci='git commit'
 alias gd='git diff'
 alias gl='git log --stat --decorate'
+alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gco='git checkout'
 
 alias dn="$HOME/apps/dsnote/donshell.sh"

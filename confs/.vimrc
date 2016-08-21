@@ -50,9 +50,9 @@ autocmd FileType clojure nnoremap <buffer> <F5> :Eval<CR>
 autocmd FileType clojure nnoremap <buffer> <F6> :%Eval<CR>
 
 
-"let g:syntastic_python_python_exec = '/usr/bin/python3'
-"let g:syntastic_python_flake8_exec = 'python3'
-"let g:syntastic_python_flake8_args = ['-m', 'flake8']
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_flake8_exec = 'python3'
+let g:syntastic_python_flake8_args = ['-m', 'flake8']
 
 " JavaScript code folding
 set foldmethod=syntax

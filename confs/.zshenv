@@ -1,5 +1,5 @@
 # nodejs
-PATH=$PATH:$HOME/apps/node-v6.3.0-linux-x64/bin
+PATH=$PATH:$HOME/apps/node-v4.5.0-linux-x64/bin
 
 # rvm, for octopress
 PATH=$PATH:$HOME/.rvm/bin
