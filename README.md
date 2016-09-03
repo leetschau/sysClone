@@ -22,6 +22,10 @@ To backup configurations in working environment to this repository:
     git ci -m "some changes"
     git push origin --all
 
+All private backup files are stored in 'private' folder,
+and system packages are saved in 'packages' folder.
+Save it in a safe place for restore.
+
 ### Restore
 
 To restore configurations in this repository to a new OS:
