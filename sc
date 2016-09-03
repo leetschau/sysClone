@@ -3,22 +3,21 @@
 # user-defined section
 configs=(".zshrc" ".zshenv" ".bash_aliases" ".vimrc" ".gitconfig"\
   ".tmux.conf" ".xsessionrc"\
-  ".oh-my-zsh/themes/lichao.zsh-theme lichao.zsh-theme"\
-  ".i3/config .i3.config" )
+  ".oh-my-zsh/themes/lichao.zsh-theme lichao.zsh-theme")
 APP_HOME="$HOME/apps"
 
 # app-defined section
 CONF_DIR="$APP_HOME/sysClone/confs"
-SCRIPT_DIR="myscripts"
+SCRIPT_DIR="scripts"
 
 # functions
 
 backupConf() {
   for i in "${configs[@]}"; do
     set $i
-    rsync -av --ignore-missing-args $HOME/$1 ${CONF_DIR}/$2
+    rsync -ai --ignore-missing-args $HOME/$1 ${CONF_DIR}/$2
   done
-  rsync -av --ignore-missing-args $SCRIPT_DIR .
+  rsync -ai --ignore-missing-args $APP_HOME/$SCRIPT_DIR .
 }
 
 restoreConf() {
@@ -28,9 +27,9 @@ restoreConf() {
     if [[ -z $src ]]; then
       src=$1
     fi
-    rsync -avu ${CONF_DIR}/$src $HOME/$1
+    rsync -aiu ${CONF_DIR}/$src $HOME/$1
   done
-  rsync -avu $SCRIPT_DIR $APP_HOME
+  rsync -aiu $SCRIPT_DIR $APP_HOME
 }
 
 OLDIFS=$IFS
