@@ -34,6 +34,7 @@ restoreConf() {
     if [[ -z $src ]]; then
       src=$1
     fi
+    mkdir -p $(dirname $HOME/$1)
     rsync -aiu ${CONF_BAK}/$src $HOME/$1
   done
   for i in "${PRIVATE_SRC[@]}"; do
@@ -42,7 +43,7 @@ restoreConf() {
     if [[ -z $src ]]; then
       src=$1
     fi
-    rsync -aiu ${PRIVATE_BAK}/$src $HOME/$1
+    rsync -aiu ${PRIVATE_BAK}/$src $HOME
   done
   rsync -aiu $SCRIPT_DIR $APP_HOME
 }
