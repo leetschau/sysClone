@@ -1,3 +1,8 @@
+# The scripts below are verified on Ubuntu 14.04, Dell laptop E7450
+
+# NEVER forget modify <username> to your account name
+sudo echo '<username>  ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers
+
 # PPAs
 
 sudo add-apt-repository ppa:wiznote-team
@@ -8,7 +13,7 @@ sudo apt update
 
 # System packages
 
-sudo apt install tree xsel
+sudo apt install tree xsel ranger
 sudo apt install build-essential make gcc g++ 
 sudo apt install curl python-pip python-dev
 sudo apt install python3-pip python3-dev
@@ -29,13 +34,14 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+## restore all configurations with sysClone
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginClean +PluginInstall
 
 git clone https://github.com/andreafabrizi/Dropbox-Uploader.git ~/apps/Dropbox-Uploader
 
 ## use gitbook instead of octopress as the blog publish tool
-
+## See note "Build Technical Blog Website from dsnote" for details
 
 # Desktop Utilities
 
@@ -58,3 +64,6 @@ sudo apt install variety variety-slideshow
 ## InputMethod
 ## Install with sogoupinyin_2.0.0.0078_amd64.deb in sysClone/packages
 ## See note "Ubuntu 14.04笔记本重装笔记" for details.
+
+## Move Window between Screens
+## see note "Move Window Between Screens with Keyboard"
