@@ -25,7 +25,7 @@ sudo apt install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
 # Console Utilities
 
 sudo apt install zsh git git-flow autojump silversearcher-ag
-sudo apt install vim-gtk proxychains
+sudo apt install vim-gtk proxychains nmon
 sudo pip install genpac
 pip install --user httpie
 
