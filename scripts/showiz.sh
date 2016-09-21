@@ -12,7 +12,7 @@ set_style() {
 case $1 in
   leftright) xpos=2954;;
   updown) xpos=1590;;
-  solo) xpos=1066;;
+  solo) xpos=1037;;
   set) set_style $2
        exit 0;;
 esac

@@ -43,7 +43,11 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<CR>
 
-cabbrev ss set spell<CR>
+cabbrev ss set spell!<CR>
+cabbrev mt MBEToggle<CR>
+cabbrev mru MBEToggleMRU<CR>
+cabbrev vb vert sb
+cabbrev tt TagbarToggle
 
 " for vim-fireplace (clojure plugin)
 autocmd FileType clojure nnoremap <buffer> <F5> :Eval<CR>
@@ -65,12 +69,6 @@ let g:ag_highlight=1
 " status line
 set laststatus=2
 let g:airline_theme='badwolf'
-" let g:airline_section_c='%F'
-" let g:airline#extensions#tabline#enabled = 1
-
-" Customize tabline
-hi TabLineFill term=bold cterm=bold ctermbg=0
-hi TabLine ctermfg=Yellow
 
 " markdown
 let g:vim_markdown_initial_foldlevel=1
@@ -93,10 +91,6 @@ au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
 
 cabbrev stm SyntasticToggleMode<CR>
-
-" Taboo: tab page rename
-set sessionoptions+=tabpages,globals
-cabbrev tr TabooRename
 
 " Ultisnips for vim snippets
 let g:UltiSnipsEditSplit='vertical'
@@ -137,6 +131,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'venantius/vim-cljfmt'
 Plugin 'leetschau/tmuxcmd'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'majutsushi/tagbar'
 " ====== End User Defined Plugins ======
 call vundle#end()
 

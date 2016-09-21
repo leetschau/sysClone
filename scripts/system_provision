@@ -1,4 +1,6 @@
 # The scripts below are verified on Ubuntu 14.04, Dell laptop E7450
+# Make sure `packages` and `private` folder has been extracted into sysClone
+
 
 # NEVER forget modify <username> to your account name
 sudo echo '<username>  ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers
@@ -25,9 +27,10 @@ sudo apt install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
 # Console Utilities
 
 sudo apt install zsh git git-flow autojump silversearcher-ag
-sudo apt install vim-gtk proxychains nmon
+sudo apt install vim-gtk proxychains nmon exuberant-ctags
 sudo pip install genpac
 pip install --user httpie
+ln -s $HOME/apps/sysClone/packages/ubuntu14.04/jq-linux64 $HOME/.local/bin/jq
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -53,6 +56,7 @@ sudo apt install compizconfig-settings-manager compiz-plugins-extra
 sudo apt install dconf-tools
 sudo apt install shutter
 sudo apt install xdotool
+sudo apt install remmina freerdp-x11 remmina-plugin-rdp   # Windows remote desktop client
 
 ## Variety
 sudo apt install variety variety-slideshow
