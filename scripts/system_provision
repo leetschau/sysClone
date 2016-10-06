@@ -28,7 +28,7 @@ sudo apt install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
 
 sudo apt install zsh git git-flow autojump silversearcher-ag
 sudo apt install vim-gtk proxychains nmon exuberant-ctags
-sudo pip install genpac
+sudo pip install genpac unrar
 pip install --user httpie
 ln -s $HOME/apps/sysClone/packages/ubuntu14.04/jq-linux64 $HOME/.local/bin/jq
 
@@ -37,7 +37,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-## restore all configurations with sysClone
+## google translator in console
+sudo apt install gawk
+wget -O $HOME/.local/bin/trans git.io/trans
+
+## restore all vim configurations with sysClone
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginClean +PluginInstall
 
