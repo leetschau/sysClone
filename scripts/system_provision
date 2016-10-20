@@ -43,6 +43,7 @@ wget -O $HOME/.local/bin/trans git.io/trans
 
 ## restore all vim configurations with sysClone
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+mkdir -p $HOME/.vim/undo
 vim +PluginClean +PluginInstall
 
 git clone https://github.com/andreafabrizi/Dropbox-Uploader.git ~/apps/Dropbox-Uploader

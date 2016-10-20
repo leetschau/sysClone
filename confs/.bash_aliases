@@ -25,7 +25,7 @@ alias clj='java -cp ~/.m2/repository/org/clojure/clojure/1.8.0/clojure-1.8.0.jar
 # tmux shortcuts
 alias tl='tmux ls'
 alias ta='tmux attach -t'
-alias tn='tmux new -s'
+alias tn='tmux new -A -s'
 
 function sv2 {
   echo HTTP_PROXY=socks5://127.0.0.1:2345 HTTPS_PROXY=socks5://127.0.0.1:2345 | parcellite

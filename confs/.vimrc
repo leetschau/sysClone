@@ -11,15 +11,27 @@ set noswapfile
 
 colo ron
 syntax on
+
+" autocomplete window color for plugin YouCompleteMe
+highlight Pmenu ctermfg=white ctermbg=black
+highlight PmenuSel ctermfg=green ctermbg=black
+nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
+nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
+
+" multiple cursors configs
+" let g:multi_cursor_next_key='<C-j>'
+" let g:multi_cursor_prev_key='<C-k>'
+
+" Font color for line longer than 80 characters
+highlight OverLength ctermfg=cyan guibg=#592929
+match OverLength /\%81v.\+/
+
 set incsearch
 set et
 set sw=2
 set ts=2
 set nu
 set nowrap
-
-highlight OverLength ctermfg=cyan guibg=#592929
-match OverLength /\%81v.\+/
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -31,23 +43,18 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
-" tab switching shortcuts
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<CR>
+" undo & undotree configs
+set undodir=$HOME/.vim/undo/ "make sure this folder exists
+set undofile
+set undolevels=1000
+set undoreload=10000
+cabbrev ut UndotreeToggle<CR>
 
 cabbrev ss set spell!<CR>
 cabbrev mt MBEToggle<CR>
 cabbrev mru MBEToggleMRU<CR>
 cabbrev vb vert sb
-cabbrev tt TagbarToggle
+cabbrev tt TagbarToggle<CR>
 
 " for vim-fireplace (clojure plugin)
 autocmd FileType clojure nnoremap <buffer> <F5> :Eval<CR>
@@ -79,7 +86,7 @@ augroup END
 
 " NerdTree
 " define open/close shortcut
-nnoremap <C-n> :NERDTreeTabsToggle<CR>
+nnoremap <C-i> :NERDTreeTabsToggle<CR>
 " close NERDTree when all files closed:
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -93,7 +100,7 @@ au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
 cabbrev stm SyntasticToggleMode<CR>
 
 " Ultisnips for vim snippets
-let g:UltiSnipsEditSplit='vertical'
+"let g:UltiSnipsEditSplit='vertical'
 
 " syntastic configs
 "let g:syntastic_javascript_checkers = ['gjslint']
@@ -133,6 +140,9 @@ Plugin 'venantius/vim-cljfmt'
 Plugin 'leetschau/tmuxcmd'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mbbill/undotree'
 " ====== End User Defined Plugins ======
 call vundle#end()
 
