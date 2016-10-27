@@ -27,42 +27,5 @@ alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias tn='tmux new -A -s'
 
-function sv2 {
-  echo HTTP_PROXY=socks5://127.0.0.1:2345 HTTPS_PROXY=socks5://127.0.0.1:2345 | parcellite
-  ssh -D 2345 devops@106.184.7.58 'vmstat 3 1000'
-}
-
-briss(){
-  java -jar $HOME/apps/briss-0.9/briss-0.9.jar $1
-}
-
-
-# csv file probe
-
-ctls(){
-  if test $# -eq 3; then
-    csvtool drop $2 $1 | csvtool take $3 -
-  else
-    echo ctls: csvtool list specified record
-    echo Synopsis: ctls '<filename> <startNo> <count>'
-  fi
-}
-
-pc(){
-  if test $# -eq 2; then
-    lines="NR==1||NR==$1"
-    awk $lines $2
-  else
-    echo pc: print csv header and the Nth row
-    echo Synopsis: pc N filename.csv
-  fi
-}
-
-pj(){
-  if test $# -eq 2; then
-    pc $1 $2 | csvjson -i 4
-  else
-    echo pc: print csv header and the Nth row in json format
-    echo Synopsis: pj N filename.csv
-  fi
-}
+# markdown realtime preview tool
+alias mkm="node $HOME/apps/markmon/node_modules/markmon/bin/markmon"
