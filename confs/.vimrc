@@ -9,6 +9,16 @@ let maplocalleader = ","
 set nobackup
 set noswapfile
 
+" code folding
+set foldmethod=indent
+set foldnestmax=2
+nnoremap <space> za
+
+" JavaScript code folding
+"set foldmethod=syntax
+"set foldlevelstart=4
+"let javaScript_fold=1
+
 colo ron
 syntax on
 
@@ -64,11 +74,6 @@ autocmd FileType clojure nnoremap <buffer> <F6> :%Eval<CR>
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_flake8_exec = 'python3'
 let g:syntastic_python_flake8_args = ['-m', 'flake8']
-
-" JavaScript code folding
-set foldmethod=syntax
-set foldlevelstart=4
-let javaScript_fold=1
 
 " Ag: grep utility
 let g:ag_highlight=1
@@ -143,6 +148,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
+Plugin 'Raimondi/delimitMate'
 " ====== End User Defined Plugins ======
 call vundle#end()
 
