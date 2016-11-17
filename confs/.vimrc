@@ -38,7 +38,7 @@ match OverLength /\%81v.\+/
 
 set incsearch
 set et
-set sw=2
+set sw=4
 set ts=2
 set nu
 set nowrap
@@ -83,11 +83,8 @@ set laststatus=2
 let g:airline_theme='badwolf'
 
 " markdown
-let g:vim_markdown_initial_foldlevel=1
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
+let g:vim_markdown_folding_level = 3
+let g:vim_markdown_toc_autofit = 1
 
 " NerdTree
 " define open/close shortcut
@@ -122,7 +119,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " ====== User Defined Plugins ======
-Plugin 'jtratner/vim-flavored-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'The-NERD-Commenter'
 Plugin 'ctrlp.vim'
 Plugin 'scrooloose/syntastic'
@@ -134,14 +132,8 @@ Plugin 'tpope/vim-obsession'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-classpath'
-Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-repeat'
-Plugin 'guns/vim-sexp'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'venantius/vim-cljfmt'
 Plugin 'leetschau/tmuxcmd'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
