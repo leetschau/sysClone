@@ -8,7 +8,6 @@ PRIVATE_SRC=(".bash_history" ".zsh_history" ".shadowsocks" ".ssh")
 
 CONF_BAK="$APP_HOME/sysClone/confs"
 PRIVATE_BAK="$APP_HOME/sysClone/private"
-SCRIPT_DIR="scripts"
 
 
 backupConf() {
@@ -24,7 +23,6 @@ backupConf() {
     set $i
     rsync -ai --ignore-missing-args $HOME/$1 ${PRIVATE_BAK}/$2
   done
-  rsync -ai --ignore-missing-args $APP_HOME/$SCRIPT_DIR .
 }
 
 restoreConf() {
@@ -45,7 +43,6 @@ restoreConf() {
     fi
     rsync -aiu ${PRIVATE_BAK}/$src $HOME
   done
-  rsync -aiu $SCRIPT_DIR $APP_HOME
 }
 
 OLDIFS=$IFS

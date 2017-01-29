@@ -58,7 +58,7 @@ set undodir=$HOME/.vim/undo/ "make sure this folder exists
 set undofile
 set undolevels=1000
 set undoreload=10000
-cabbrev ut UndotreeToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 
 cabbrev ss set spell!<CR>
 cabbrev mt MBEToggle<CR>
@@ -85,6 +85,7 @@ let g:airline_theme='badwolf'
 " markdown
 let g:vim_markdown_folding_level = 3
 let g:vim_markdown_toc_autofit = 1
+nnoremap <leader>t :Toc<CR>
 
 " NerdTree
 " define open/close shortcut
@@ -107,6 +108,9 @@ cabbrev stm SyntasticToggleMode<CR>
 " syntastic configs
 "let g:syntastic_javascript_checkers = ['gjslint']
 let g:syntastic_javascript_checkers = ['eslint']
+
+" eclim
+let g:EclimCompletionMethod = 'omnifunc'
 
 " ====== Vundle Start =======
 filetype off   " required
@@ -137,10 +141,11 @@ Plugin 'tpope/vim-surround'
 Plugin 'leetschau/tmuxcmd'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
 Plugin 'Raimondi/delimitMate'
+Plugin 'davidhalter/jedi-vim'
 " ====== End User Defined Plugins ======
 call vundle#end()
 
