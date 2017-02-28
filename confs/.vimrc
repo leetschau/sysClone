@@ -141,11 +141,16 @@ Plugin 'tpope/vim-surround'
 Plugin 'leetschau/tmuxcmd'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
-"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
 Plugin 'Raimondi/delimitMate'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'geoffharcourt/vim-matchit'
 " ====== End User Defined Plugins ======
 call vundle#end()
 
