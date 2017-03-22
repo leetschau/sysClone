@@ -19,7 +19,7 @@ alias qv="sudo service openvpn start"
 # add path of mongod of this user into sudo PATH, so you can run mongod as `sudo mongod`:
 # alias mongod='sudo env PATH=$PATH mongod'
 alias -s pdf=evince
-alias variety='/home/leo/apps/node-v5.4.1-linux-x64/bin/variety'
+#alias variety='/home/leo/apps/node-v5.4.1-linux-x64/bin/variety'
 alias clj='java -cp ~/.m2/repository/org/clojure/clojure/1.8.0/clojure-1.8.0.jar clojure.main'
 
 # tmux shortcuts
