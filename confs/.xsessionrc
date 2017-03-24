@@ -1,1 +1,6 @@
 setxkbmap -option caps:swapescape
+xbindkeys
+autokey &
+copyq &
+ss-qt5 &
+WizNote &
