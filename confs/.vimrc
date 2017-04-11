@@ -89,11 +89,11 @@ nnoremap <leader>t :Toc<CR>
 
 " NerdTree
 " define open/close shortcut
-nnoremap <C-i> :NERDTreeTabsToggle<CR>
+nnoremap <C-i> :NERDTreeToggle<CR>
 " close NERDTree when all files closed:
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-nnoremap <C-a> :CtrlPBuffer<CR>
+nnoremap <C-n> :CtrlPBuffer<CR>
 
 " hdevtools setup (haskell)
 au FileType haskell nnoremap <buffer> <F3> :HdevtoolsType<CR>
@@ -125,24 +125,26 @@ Plugin 'gmarik/Vundle.vim'
 " ====== User Defined Plugins ======
 "Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-"Plugin 'The-NERD-Commenter'
+Plugin 'The-NERD-Commenter'
 Plugin 'ctrlp.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'rking/ag.vim'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tfnico/vim-gradle'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tpope/vim-fugitive'
 "Plugin 'tpope/vim-obsession'
 "Plugin 'jistr/vim-nerdtree-tabs'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'tpope/vim-repeat'
 "Plugin 'tpope/vim-surround'
 "Plugin 'leetschau/tmuxcmd'
-"Plugin 'fholgado/minibufexpl.vim'
+Plugin 'fholgado/minibufexpl.vim'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'Valloric/YouCompleteMe'
-"Plugin 'mbbill/undotree'
+Plugin 'mbbill/undotree'
 "Plugin 'Raimondi/delimitMate'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'tpope/vim-fireplace'
