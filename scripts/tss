@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# taking screenshots
+shutter -s "$@" -e -o ~/temp/screenshot.png
+pinta ~/temp/screenshot.png
+copyq write image/png - < ~/temp/screenshot.png

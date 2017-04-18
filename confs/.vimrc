@@ -38,7 +38,7 @@ match OverLength /\%81v.\+/
 
 set incsearch
 set et
-set sw=4
+set sw=2
 set ts=2
 set nu
 set nowrap
@@ -136,8 +136,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'tpope/vim-obsession'
 "Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'tpope/vim-repeat'
 "Plugin 'tpope/vim-surround'
 "Plugin 'leetschau/tmuxcmd'

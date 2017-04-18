@@ -1,7 +1,5 @@
-alias lock='i3lock -d -c 000000'
+alias op='xdg-open'
 alias cfe='pkill nautilus'
-alias va='vagrant'
-alias vb='VBoxManage'
 
 alias gs='git status'
 alias ga='git add -A'
@@ -14,7 +12,7 @@ alias gco='git checkout'
 
 alias dn="$HOME/apps/dsnote/donshell.sh"
 
-alias sv="sshuttle --dns -r leo@106.184.7.58 -x 192.168.0.0/16 -x 127.0.0.1 -D 0/0"
+alias sv="sshuttle --dns -r leo@106.184.7.58 -x 192.168.0.0/16 -x 127.0.0.1 0/0"
 alias lv="pgrep sshuttle"
 alias kv="pkill sshuttle"
 
@@ -31,3 +29,6 @@ alias tn='tmux new -A -s'
 
 # markdown realtime preview tool
 alias mkm="node $HOME/apps/markmon/node_modules/markmon/bin/markmon"
+
+alias va='vagrant'
+alias vb='VBoxManage'
