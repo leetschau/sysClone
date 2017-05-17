@@ -4,7 +4,6 @@ PATH=$PATH:$HOME/apps/sysClone/scripts
 PATH=$PATH:$HOME/apps/mysql-5.6.35-0/mysql/bin
 PATH=$PATH:$HOME/apps/mongodb-3.4.0-0/mongodb/bin
 PATH=$PATH:$HOME/apps/redis-3.2.8-0/redis/bin
-PATH=/home/leo/apps/anaconda3/bin:$PATH
 
 export NVM_DIR="/home/leo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

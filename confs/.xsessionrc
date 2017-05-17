@@ -1,10 +1,10 @@
 setxkbmap -option caps:swapescape
-xbindkeys
-devmon &
-autokey &
-copyq &
-ss-qt5 &
-WizNote &
+#xbindkeys
+#devmon &
+#autokey &
+#copyq &
+#ss-qt5 &
+#WizNote &
 
 # for i3 on Dell E7450
 # xrandr --output eDP1 --right-of HDMI1 --auto

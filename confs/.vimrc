@@ -145,6 +145,7 @@ Plugin 'fholgado/minibufexpl.vim'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
+Plugin 'derekwyatt/vim-scala'
 "Plugin 'Raimondi/delimitMate'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'tpope/vim-fireplace'
@@ -152,7 +153,7 @@ Plugin 'mbbill/undotree'
 "Plugin 'guns/vim-clojure-static'
 "Plugin 'guns/vim-sexp'
 "Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-"Plugin 'geoffharcourt/vim-matchit'
+Plugin 'geoffharcourt/vim-matchit'
 " ====== End User Defined Plugins ======
 call vundle#end()
 
