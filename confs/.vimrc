@@ -1,5 +1,6 @@
 set nocompatible
 set clipboard=unnamedplus
+"set clipboard=unnamed    "on cygwin
 
 set splitbelow
 set splitright
@@ -18,6 +19,18 @@ nnoremap <space> za
 "set foldmethod=syntax
 "set foldlevelstart=4
 "let javaScript_fold=1
+
+" vimux cellmode
+let g:cellmode_tmux_panenumber='2'
+let g:cellmode_default_mappings='0'
+vnoremap <silent> <leader>v :call RunTmuxPythonChunk()<CR>
+nnoremap <silent> <leader>l :call RunTmuxPythonLine()<CR>
+noremap <silent> <leader>nc :call RunTmuxPythonCell(0)<CR>
+noremap <silent> <leader>c :call RunTmuxPythonCell(1)<CR>
+noremap <silent> <leader>ut :call RunTmuxPythonAllCellsAbove()<CR>
+
+" python auto-completion
+let g:jedi#completions_command = "<C-K>"
 
 colo ron
 syntax on
@@ -109,6 +122,9 @@ cabbrev stm SyntasticToggleMode<CR>
 "let g:syntastic_javascript_checkers = ['gjslint']
 let g:syntastic_javascript_checkers = ['eslint']
 
+" ctrlp config
+let g:ctrlp_custom_ignore = { 'dir': 'node_modules\|.git' }
+
 " eclim
 let g:EclimCompletionMethod = 'omnifunc'
 
@@ -123,37 +139,24 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " ====== User Defined Plugins ======
-"Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
+Plugin 'gabrielelana/vim-markdown'
 Plugin 'The-NERD-Commenter'
 Plugin 'ctrlp.vim'
-"Plugin 'scrooloose/syntastic'
 Plugin 'rking/ag.vim'
 Plugin 'tfnico/vim-gradle'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'tpope/vim-obsession'
-"Plugin 'jistr/vim-nerdtree-tabs'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'tpope/vim-repeat'
-"Plugin 'tpope/vim-surround'
-"Plugin 'leetschau/tmuxcmd'
 Plugin 'fholgado/minibufexpl.vim'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
 Plugin 'derekwyatt/vim-scala'
-"Plugin 'Raimondi/delimitMate'
-"Plugin 'davidhalter/jedi-vim'
-"Plugin 'tpope/vim-fireplace'
-"Plugin 'tpope/vim-classpath'
-"Plugin 'guns/vim-clojure-static'
-"Plugin 'guns/vim-sexp'
-"Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'geoffharcourt/vim-matchit'
+Plugin 'benmills/vimux'
+Plugin 'leetschau/vim-cellmode'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'posva/vim-vue'
 " ====== End User Defined Plugins ======
 call vundle#end()
 

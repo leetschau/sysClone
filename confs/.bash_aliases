@@ -1,6 +1,8 @@
 alias sw='setxkbmap -option caps:swapescape'
 alias mr='xmodmap -e "pointer = 3 2 1"'
 alias ml='xmodmap -e "pointer = 1 2 3"'
+alias ra='ranger'
+alias rf='rifle'
 
 alias op='xdg-open'
 alias cfe='pkill nautilus'
