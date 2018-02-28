@@ -1,23 +1,15 @@
 set nocompatible
 set clipboard=unnamedplus
 
-set splitbelow
-set splitright
-nnoremap <F2> :set wrap!<CR>
 let mapleader=","
 let maplocalleader = ","
 set nobackup
 set noswapfile
-
-" code folding
-"set foldmethod=indent
-"set foldnestmax=2
-"nnoremap <space> za
-
-" JavaScript code folding
-"set foldmethod=syntax
-"set foldlevelstart=4
-"let javaScript_fold=1
+set splitbelow
+set splitright
+nnoremap <F2> :set wrap!<CR>
+nnoremap <leader>e :e $MYVIMRC<CR>
+nnoremap <leader>s :soource $MYVIMRC<CR>
 
 " vimux cellmode
 let g:cellmode_tmux_panenumber='2'
@@ -28,14 +20,12 @@ noremap <silent> <leader>nc :call RunTmuxPythonCell(0)<CR>
 noremap <silent> <leader>c :call RunTmuxPythonCell(1)<CR>
 noremap <silent> <leader>ut :call RunTmuxPythonAllCellsAbove()<CR>
 
-" python auto-completion
-"let g:jedi#completions_command = "<C-K>"
-
 " python-mode
 let g:pymode_lint_on_fly = 0
 let g:pymode_breakpoint = 1
 let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_folding = 0
+let g:pymode_python = 'python3'
 " let g:pymode_lint_ignore = ["E402", ]
 cabbrev af PymodeLintAuto<CR>
 
@@ -47,16 +37,6 @@ inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
 colo ron
 syntax on
 
-" autocomplete window color for plugin YouCompleteMe
-"highlight Pmenu ctermfg=white ctermbg=black
-"highlight PmenuSel ctermfg=green ctermbg=black
-"nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
-"nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
-
-" multiple cursors configs
-" let g:multi_cursor_next_key='<C-j>'
-" let g:multi_cursor_prev_key='<C-k>'
-
 " Font color for line longer than 80 characters
 highlight OverLength ctermfg=cyan guibg=#592929
 match OverLength /\%81v.\+/
@@ -67,6 +47,9 @@ set sw=2
 set ts=2
 set nu
 set nowrap
+
+" ctags config
+set tags=.tags
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -95,10 +78,6 @@ cabbrev tt TagbarToggle<CR>
 autocmd FileType clojure nnoremap <buffer> <F5> :Eval<CR>
 autocmd FileType clojure nnoremap <buffer> <F6> :%Eval<CR>
 
-let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_flake8_exec = 'python3'
-let g:syntastic_python_flake8_args = ['-m', 'flake8']
-
 " Ag: grep utility
 let g:ag_highlight=1
 
@@ -119,13 +98,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 nnoremap <C-n> :CtrlPBuffer<CR>
 
-" hdevtools setup (haskell)
-au FileType haskell nnoremap <buffer> <F3> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
-
-cabbrev stm SyntasticToggleMode<CR>
-
 " Ultisnips for vim snippets
 "let g:UltiSnipsEditSplit='vertical'
 
@@ -136,43 +108,21 @@ let g:syntastic_javascript_checkers = ['eslint']
 " ctrlp config
 let g:ctrlp_custom_ignore = { 'dir': 'node_modules\|.git' }
 
-" eclim
-let g:EclimCompletionMethod = 'omnifunc'
-
-" ====== Vundle Start =======
-filetype off   " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" ====== User Defined Plugins ======
-"Plugin 'plasticboy/vim-markdown'
-Plugin 'gabrielelana/vim-markdown'
-Plugin 'The-NERD-Commenter'
-Plugin 'ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'tfnico/vim-gradle'
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tpope/vim-fugitive'
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'mbbill/undotree'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'geoffharcourt/vim-matchit'
-Plugin 'benmills/vimux'
-Plugin 'leetschau/vim-cellmode'
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'posva/vim-vue'
-Plugin 'python-mode/python-mode'
-Plugin 'ervandew/supertab'
-Plugin 'szw/vim-maximizer'
-
-" ====== End User Defined Plugins ======
-call vundle#end()
-
-filetype plugin indent on
+call plug#begin()
+Plug 'roxma/nvim-completion-manager'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'brooth/far.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'gabrielelana/vim-markdown'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'mbbill/undotree'
+Plug 'geoffharcourt/vim-matchit'
+Plug 'ervandew/supertab'
+Plug 'python-mode/python-mode', {'branch': 'develop'}
+Plug 'szw/vim-maximizer'
+Plug 'scrooloose/nerdcommenter'
+call plug#end()
