@@ -1,5 +1,4 @@
-set nocompatible
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 let mapleader=","
 let maplocalleader = ","
@@ -9,7 +8,34 @@ set splitbelow
 set splitright
 nnoremap <F2> :set wrap!<CR>
 nnoremap <leader>e :e $MYVIMRC<CR>
-nnoremap <leader>s :soource $MYVIMRC<CR>
+nnoremap <leader>s :so $MYVIMRC<CR>
+
+" neoterm
+let g:neoterm_default_mod = 'vertical'
+let g:neoterm_autoscroll = 1
+let g:neoterm_direct_open_repl = 1
+nnoremap <silent> <Space> :TREPLSendLine<CR>
+vnoremap <silent> <Space> :TREPLSendLine<CR>
+cabbrev ts T
+cabbrev tg Ttoggle<CR>
+autocmd FileType haskell let g:neoterm_repl_command  = 'stack ghci'
+autocmd FileType python let g:neoterm_repl_command  = 'python'
+
+
+" send command in tmux
+function! SendCurLineInTmux()
+  let curline = getline(".")
+  let escstr = substitute(curline, "'", "'\"'\"'", 'g')
+  let cmd = "tmux send-keys -t right C-u '" . escstr . "' Enter"
+  " echom cmd
+  echom system(cmd)
+endfunction
+"nnoremap <silent> <Space> :call SendCurLineInTmux()<CR>
+"vnoremap <silent> <Space> :call SendCurLineInTmux()<CR>
+
+" latex live preview plugin
+let g:livepreview_previewer = 'xreader'
+let g:livepreview_engine = 'xelatex'
 
 " vimux cellmode
 let g:cellmode_tmux_panenumber='2'
@@ -69,10 +95,10 @@ set undoreload=10000
 nnoremap <leader>u :UndotreeToggle<CR>
 
 cabbrev ss set spell!<CR>
-cabbrev mt MBEToggle<CR>
-cabbrev mru MBEToggleMRU<CR>
-cabbrev vb vert sb
-cabbrev tt TagbarToggle<CR>
+"cabbrev mt MBEToggle<CR>
+"cabbrev mru MBEToggleMRU<CR>
+"cabbrev vb vert sb
+"cabbrev tt TagbarToggle<CR>
 
 " for vim-fireplace (clojure plugin)
 autocmd FileType clojure nnoremap <buffer> <F5> :Eval<CR>
@@ -88,7 +114,7 @@ let g:airline_theme='badwolf'
 " markdown
 let g:vim_markdown_folding_level = 3
 let g:vim_markdown_toc_autofit = 1
-nnoremap <leader>t :Toc<CR>
+autocmd FileType markdown nnoremap <leader>t :Toc<CR>
 
 " NerdTree
 " define open/close shortcut
@@ -114,7 +140,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'brooth/far.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'gabrielelana/vim-markdown'
+" Plug 'gabrielelana/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
@@ -125,4 +152,6 @@ Plug 'ervandew/supertab'
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'szw/vim-maximizer'
 Plug 'scrooloose/nerdcommenter'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'kassio/neoterm'
 call plug#end()

@@ -1,10 +1,11 @@
 setxkbmap -option caps:swapescape
-#xbindkeys
-#devmon &
+$HOME/apps/Shadowsocks-Qt5-3.0.0-x86_64.AppImage &
+$HOME/apps/electronic-wechat-linux-x64/electronic-wechat &
+$HOME/apps/WizNote-2.5.9-x86_64.AppImage &
+copyq &
+xbindkeys
+devmon &
 #autokey &
-#copyq &
-#ss-qt5 &
-#WizNote &
 
 # for i3 on Dell E7450
 # xrandr --output eDP1 --right-of HDMI1 --auto

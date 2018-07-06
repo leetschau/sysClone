@@ -1,7 +1,8 @@
-alias n="$HOME/apps/neovim/nvim.appimage"
+alias vi="$HOME/apps/nvim.appimage"
 alias ra='ranger'
 alias rf='rifle'
 
+alias dn=$HOME/apps/dsnote/donshell.sh
 alias ss="source $HOME/.sdkman/bin/sdkman-init.sh"
 
 alias gs='git status'
