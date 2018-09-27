@@ -1,4 +1,4 @@
-alias vi="$HOME/apps/nvim.appimage"
+alias vi="$HOME/warez/nvim031.appimage"
 alias ra='ranger'
 alias rf='rifle'
 

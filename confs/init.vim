@@ -135,12 +135,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:ctrlp_custom_ignore = { 'dir': 'node_modules\|.git' }
 
 call plug#begin()
-Plug 'roxma/nvim-completion-manager'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'brooth/far.vim'
 Plug 'kien/ctrlp.vim'
-" Plug 'gabrielelana/vim-markdown'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -149,9 +147,9 @@ Plug 'fholgado/minibufexpl.vim'
 Plug 'mbbill/undotree'
 Plug 'geoffharcourt/vim-matchit'
 Plug 'ervandew/supertab'
-Plug 'python-mode/python-mode', {'branch': 'develop'}
+" Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'szw/vim-maximizer'
 Plug 'scrooloose/nerdcommenter'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'kassio/neoterm'
 call plug#end()
