@@ -1,3 +1,5 @@
+#!/bin/bash
+
 APP_HOME="$HOME/apps"
 CONF_SRC=(".zshrc" ".zshenv" ".bash_aliases" ".vimrc" ".gitconfig"\
   ".tmux.conf" ".xsessionrc" ".fzf.zsh" ".i3/config .i3.config"\

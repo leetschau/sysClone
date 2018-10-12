@@ -12,3 +12,4 @@
 	ui = auto
 [core]
 	askpass = git-gui--askpass
+	quotepath = false

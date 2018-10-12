@@ -14,7 +14,7 @@ alias gl='git log --stat --decorate'
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gco='git checkout'
 
-alias sv="sshuttle --dns -r leo@106.184.7.58 -x 192.168.0.0/16 -x 127.0.0.1 0/0"
+alias sv="sshuttle --dns -r root@172.104.108.163 -x 172.18.0.0/16 -x 127.0.0.1 -D 0/0"
 alias lv="pgrep sshuttle"
 alias kv="pkill sshuttle"
 
