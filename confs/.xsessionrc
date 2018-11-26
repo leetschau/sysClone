@@ -1,12 +1,12 @@
 setxkbmap -option caps:swapescape
-# $HOME/warez/Shadowsocks-Qt5-3.0.1-x86_64.AppImage &
-$HOME/apps/electronic-wechat-linux-x64/electronic-wechat &
-$HOME/apps/WizNote-2.5.9-x86_64.AppImage &
-copyq &
 xbindkeys
+copyq &
+/home/leo/warez/Shadowsocks-Qt5-3.0.0-x86_64.AppImage &
+/home/leo/warez/WizNote-2.5.9-x86_64.AppImage &
+xmodmap -e "pointer = 3 2 1"
+
 devmon &
 #autokey &
 
 # for i3 on Dell E7450
 # xrandr --output eDP1 --right-of HDMI1 --auto
-# xmodmap -e "pointer = 3 2 1"

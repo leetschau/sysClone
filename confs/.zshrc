@@ -8,6 +8,9 @@ plugins=(git, autojump, git-flow-completion)
 
 source $ZSH/oh-my-zsh.sh
 
+source $HOME/apps/todo.txt_cli-2.11.0/todo_completion
+#complete -F _todo to
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi

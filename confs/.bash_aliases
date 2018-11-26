@@ -1,6 +1,7 @@
 alias vi="$HOME/warez/nvim031.appimage"
 alias ra='ranger'
 alias rf='rifle'
+alias hg='stack hoogle -- -i'
 
 alias dn=$HOME/apps/dsnote/donshell.sh
 alias ss="source $HOME/.sdkman/bin/sdkman-init.sh"
@@ -24,6 +25,9 @@ alias qv="sudo service openvpn start"
 alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias tn='tmux new -A -s'
+
+# todo.txt shortcuts
+alias to="$HOME/apps/todo.txt_cli-2.11.0/todo.sh"
 
 # markdown realtime preview tool
 alias mkm="node $HOME/apps/markmon/node_modules/markmon/bin/markmon"

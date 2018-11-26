@@ -24,6 +24,9 @@ autocmd FileType haskell,python cabbrev tg Ttoggle<CR>
 autocmd FileType haskell let g:neoterm_repl_command  = 'stack ghci'
 autocmd FileType python let g:neoterm_repl_python  = 'ipython'
 
+" Haskell shortcuts
+autocmd FileType haskell nnoremap <C-q> :execute ':!stack hoogle -- -i <cword>'<cr>
+
 " LaTeX Live Preview
 let g:livepreview_engine = 'xelatex'
 let g:livepreview_previewer = 'evince'
@@ -120,6 +123,9 @@ nnoremap <C-n> :CtrlPBuffer<CR>
 " ctrlp config
 let g:ctrlp_custom_ignore = { 'dir': 'node_modules\|.git' }
 
+" disable ALE by default
+let g:ale_enabled = 0
+
 call plug#begin()
 Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips'
@@ -135,7 +141,7 @@ Plug 'geoffharcourt/vim-matchit'
 Plug 'ervandew/supertab'
 Plug 'szw/vim-maximizer'
 Plug 'scrooloose/nerdcommenter'
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 Plug 'mklabs/split-term.vim'
 Plug 'kassio/neoterm'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -147,4 +153,5 @@ Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
+Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 call plug#end()
