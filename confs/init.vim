@@ -11,18 +11,60 @@ nnoremap <F2> :set wrap!<CR>
 nnoremap <leader>e :e $MYVIMRC<CR>
 nnoremap <leader>s :so $MYVIMRC<CR>
 
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/home/leo/apps/miniconda3/bin/python'
+
 " neoterm
-let g:python_host_prog = '/home/leo/apps/miniconda3/envs/anaconda/bin/python'
-let g:neoterm_default_mod = 'vertical'
+let g:neoterm_default_mod = 'below'
+let g:neoterm_size = 20
 let g:neoterm_autoscroll = 1
 let g:neoterm_direct_open_repl = 1
-autocmd FileType haskell,python nnoremap <silent> <Space> :TREPLSendLine<CR>
-autocmd FileType haskell,python vnoremap <silent> <Space> :TREPLSendLine<CR>
-autocmd FileType haskell,python cabbrev ts T
-autocmd FileType haskell,python cabbrev tl T :load %
-autocmd FileType haskell,python cabbrev tg Ttoggle<CR>
+let g:neoterm_repl_ruby = 'pry'
+let g:neoterm_repl_python  = 'ipython'
 autocmd FileType haskell let g:neoterm_repl_command  = 'stack ghci'
-autocmd FileType python let g:neoterm_repl_python  = 'ipython'
+
+autocmd FileType haskell,python,ruby nnoremap <silent> <Space> :TREPLSendLine<CR>
+autocmd FileType haskell,python,ruby vnoremap <silent> <Space> :TREPLSendLine<CR>
+
+autocmd FileType haskell,python,ruby cabbrev tt T
+autocmd FileType haskell,python,ruby cabbrev tn Tnew
+autocmd FileType haskell,python,ruby cabbrev tg Ttoggle
+autocmd FileType haskell,python,ruby cabbrev tc Tclose
+autocmd FileType haskell cabbrev tl T :load %
+autocmd FileType python cabbrev tl T run %
+autocmd FileType ruby cabbrev tl T load '%'
+
+" terminal mode setup
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+  highlight! link TermCursor Cursor
+  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+endif
+
+"au BufRead,BufNewFile *.hy  setfiletype hy
+autocmd BufRead,BufNewFile *.hy set filetype=clojure
+
+" Rainbow Parenthesis
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\ 'ctermfgs': ['yellow', 'red', 'white', 'green', 'lightblue', 'lightred', 'lightgreen'],
+\ 'operators': '_,_',
+\ 'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\ 'separately': {
+\   '*': {},
+\   'tex': {
+\     'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\   },
+\   'vim': {
+\     'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\   },
+\   'html': {
+\     'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\   },
+\   'css': 0,
+\ }
+\}
 
 " Haskell shortcuts
 autocmd FileType haskell nnoremap <C-q> :execute ':!stack hoogle -- -i <cword>'<cr>
@@ -59,7 +101,7 @@ syntax on
 
 " Font color for line longer than 80 characters
 highlight OverLength ctermfg=cyan guibg=#592929
-match OverLength /\%81v.\+/
+match OverLength /\%121v.\+/
 
 set incsearch
 set et
@@ -123,11 +165,21 @@ nnoremap <C-n> :CtrlPBuffer<CR>
 " ctrlp config
 let g:ctrlp_custom_ignore = { 'dir': 'node_modules\|.git' }
 
-" disable ALE by default
-let g:ale_enabled = 0
+" ALE config
+let g:ale_enabled = 1
+let b:ale_linters = {'python': ['flake8']}
+let b:ale_fixers = {'python': ['yapf']}
+
+" EasyMotion config
+nmap w <Plug>(easymotion-bd-w)
+nmap w <Plug>(easymotion-overwin-w)
+
+" idris-vim config
+nnoremap <leader>id :call IdrisAddClause()<CR>
+nnoremap <leader>ic :call IdrisCaseSplit()<CR>
 
 call plug#begin()
-Plug 'roxma/nvim-completion-manager'
+"Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'brooth/far.vim'
@@ -144,14 +196,27 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'mklabs/split-term.vim'
 Plug 'kassio/neoterm'
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+
+Plug 'easymotion/vim-easymotion'
+
 " Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+"Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'hy'] }
+"Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'hy'] }
+"Plug 'guns/vim-clojure-highlight', { 'for': ['clojure', 'hy'] }
+"Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'hy'] }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
-Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
+"Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+"Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
+"Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
+Plug 'luochen1990/rainbow'
+Plug 'tpope/vim-repeat'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'idris-hackers/idris-vim'
+Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'make fsautocomplete' }
+"Plug 'vim-scripts/paredit.vim'
+
 call plug#end()

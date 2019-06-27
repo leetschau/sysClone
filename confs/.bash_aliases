@@ -1,4 +1,5 @@
-alias vi="$HOME/warez/nvim031.appimage"
+alias vi=nvim
+alias vico="$HOME/warez/nvim031.appimage -u $HOME/.config/nvim/coconut/init.coco.vim"
 alias ra='ranger'
 alias rf='rifle'
 alias hg='stack hoogle -- -i'
@@ -36,3 +37,4 @@ alias va='vagrant'
 alias vb='VBoxManage'
 
 alias ssb='spark-submit'
+alias jop=$HOME/.joplin-bin/bin/joplin
