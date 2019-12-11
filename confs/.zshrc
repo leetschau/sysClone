@@ -2,7 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="lichao"
 
-plugins=(asdf git gitfast httpie web-search vi-mode autojump copyfile
+plugins=(asdf git gitfast httpie web-search autojump copyfile sudo vi-mode
          colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -24,16 +24,28 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
 
-#. /usr/share/autojump/autojump.zsh
-#. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/completions/asdf.bash
-
-. $HOME/apps/miniconda3/etc/profile.d/conda.sh
-conda activate base
-
 . $HOME/apps/q/q.plugin.zsh
 
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
 
 source $HOME/.poetry/env
+
+eval "$(direnv hook zsh)"
+
+source $HOME/apps/z/z.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/leo/apps/miniconda3_4.7.11/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/leo/apps/miniconda3_4.7.11/etc/profile.d/conda.sh" ]; then
+        . "/home/leo/apps/miniconda3_4.7.11/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/leo/apps/miniconda3_4.7.11/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

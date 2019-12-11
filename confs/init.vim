@@ -149,6 +149,8 @@ let g:airline_theme='badwolf'
 " markdown
 let g:vim_markdown_folding_level = 3
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
 autocmd FileType markdown nnoremap <leader>t :Toc<CR>
 
 " NerdTree
@@ -171,17 +173,23 @@ let b:ale_linters = {'python': ['flake8']}
 let b:ale_fixers = {'python': ['yapf']}
 
 " EasyMotion config
-nmap w <Plug>(easymotion-bd-w)
-nmap w <Plug>(easymotion-overwin-w)
+nmap f <Plug>(easymotion-bd-w)
+nmap f <Plug>(easymotion-overwin-w)
 
 " idris-vim config
 nnoremap <leader>id :call IdrisAddClause()<CR>
 nnoremap <leader>ic :call IdrisCaseSplit()<CR>
 
+" ack config
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+cabbrev ack Ack
+
 call plug#begin()
 "Plug 'roxma/nvim-completion-manager'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 Plug 'brooth/far.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -194,29 +202,30 @@ Plug 'ervandew/supertab'
 Plug 'szw/vim-maximizer'
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
-Plug 'mklabs/split-term.vim'
-Plug 'kassio/neoterm'
+"Plug 'mklabs/split-term.vim'
+"Plug 'kassio/neoterm'
+"Plug 'mileszs/ack.vim'
 
 Plug 'easymotion/vim-easymotion'
 
-" Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
+"Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 "Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'hy'] }
 "Plug 'tpope/vim-fireplace', { 'for': ['clojure', 'hy'] }
 "Plug 'guns/vim-clojure-highlight', { 'for': ['clojure', 'hy'] }
 "Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'hy'] }
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 "Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 "Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
 "Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'luochen1990/rainbow'
-Plug 'tpope/vim-repeat'
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'idris-hackers/idris-vim'
-Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'make fsautocomplete' }
+"Plug 'tpope/vim-repeat'
+"Plug 'guns/vim-sexp'
+"Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-sexp-mappings-for-regular-people'
+"Plug 'idris-hackers/idris-vim', { 'for': 'idr' }
+"Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'make fsautocomplete' }
 "Plug 'vim-scripts/paredit.vim'
 
 call plug#end()
