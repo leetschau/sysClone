@@ -1,0 +1,24 @@
+URxvt*scrollBar_left: false
+URxvt*scrollBar: false
+
+URxvt.perl-ext-common: default,keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard: true
+
+URxvt.font: xft:DejaVu Sans Mono,xft:WenQuanYi Micro Hei Mono:antialias=true
+
+URxvt.background: #000000
+URxvt.foreground: #FFFFFF
+
+!blue
+URxvt.color4:  #72A0C1
+URxvt.color12: #72A0C1
+
+! magenta
+URxvt.color5:  #F19CBB
+URxvt.color13: #F19CBB
+
+!cyan
+URxvt.color6:  #00FFFF
+URxvt.color14: #00FFFF
+

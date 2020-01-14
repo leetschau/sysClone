@@ -38,3 +38,6 @@ alias vb='VBoxManage'
 
 alias ssb='spark-submit'
 alias jop=$HOME/.joplin-bin/bin/joplin
+
+alias d.='desk .'
+alias dls='desk list'

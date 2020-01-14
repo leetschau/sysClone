@@ -2,8 +2,11 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="lichao"
 
-plugins=(asdf git gitfast httpie web-search autojump copyfile sudo vi-mode
+plugins=(asdf git gitfast httpie web-search copyfile sudo 
          colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
+
+# optional plugins:
+# vi-mode
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,16 +27,26 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
 
-. $HOME/apps/q/q.plugin.zsh
+source $HOME/apps/zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "changyuheng/fz", defer:1
+zplug "rupa/z", use:z.sh
+zplug "cal2195/q", use:"q.plugin.zsh"
+zplug "jamesob/desk", as:command, use:desk
 
-# Hook for desk activation
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+zplug load
+
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-
-source $HOME/.poetry/env
 
 eval "$(direnv hook zsh)"
 
-source $HOME/apps/z/z.sh
+source $HOME/.poetry/env
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

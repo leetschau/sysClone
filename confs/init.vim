@@ -11,9 +11,9 @@ nnoremap <F2> :set wrap!<CR>
 nnoremap <leader>e :e $MYVIMRC<CR>
 nnoremap <leader>s :so $MYVIMRC<CR>
 
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/home/leo/apps/miniconda3/bin/python'
-
+"let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/home/leo/apps/miniconda3_4.7.11/bin/python'
+"let g:python3_host_prog = '/home/leo/Documents/temp/Mario-Level-1/envs/bin/python'
 " neoterm
 let g:neoterm_default_mod = 'below'
 let g:neoterm_size = 20
@@ -119,6 +119,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 nnoremap ; :
+nnoremap - :CtrlPCmdPalette<CR>
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
@@ -157,7 +158,22 @@ autocmd FileType markdown nnoremap <leader>t :Toc<CR>
 " define open/close shortcut
 nnoremap <C-i> :NERDTreeToggle<CR>
 " close NERDTree when all files closed:
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function! s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
 
 nnoremap <C-n> :CtrlPBuffer<CR>
 
@@ -177,8 +193,8 @@ nmap f <Plug>(easymotion-bd-w)
 nmap f <Plug>(easymotion-overwin-w)
 
 " idris-vim config
-nnoremap <leader>id :call IdrisAddClause()<CR>
-nnoremap <leader>ic :call IdrisCaseSplit()<CR>
+"nnoremap <leader>id :call IdrisAddClause()<CR>
+"nnoremap <leader>ic :call IdrisCaseSplit()<CR>
 
 " ack config
 if executable('ag')
@@ -186,12 +202,21 @@ if executable('ag')
 endif
 cabbrev ack Ack
 
+let g:deoplete#enable_at_startup = 1
+
+" asciidoctor
+augroup ON_ASCIIDOCTOR_SAVE | au!
+	au BufWritePost *.adoc silent! :Asciidoctor2HTML
+augroup end
+nnoremap <leader>o :VoomToggle asciidoc<CR>
+
 call plug#begin()
 "Plug 'roxma/nvim-completion-manager'
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
 Plug 'brooth/far.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'fisadev/vim-ctrlp-cmdpalette'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
@@ -202,13 +227,26 @@ Plug 'ervandew/supertab'
 Plug 'szw/vim-maximizer'
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
+Plug 'vim-voom/VOoM'
+
 "Plug 'mklabs/split-term.vim'
 "Plug 'kassio/neoterm'
 "Plug 'mileszs/ack.vim'
 
+" auto completion: deoplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'deoplete-plugins/deoplete-jedi'
+
 Plug 'easymotion/vim-easymotion'
 
 "Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
+Plug 'davidhalter/jedi-vim'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 "Plug 'guns/vim-clojure-static', { 'for': ['clojure', 'hy'] }
@@ -220,6 +258,7 @@ Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 "Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
 "Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'luochen1990/rainbow'
+Plug 'habamax/vim-asciidoctor', { 'for': 'asciidoctor' }
 "Plug 'tpope/vim-repeat'
 "Plug 'guns/vim-sexp'
 "Plug 'tpope/vim-surround'
