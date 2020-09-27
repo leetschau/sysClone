@@ -2,21 +2,15 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="lichao"
 
-plugins=(asdf git gitfast httpie web-search copyfile sudo 
-         colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
-
-# optional plugins:
-# vi-mode
+plugins=(alias-finder copydir copyfile command-not-found
+         colored-man-pages git gitfast taskwarrior vi-mode
+         z zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-
-source $HOME/apps/todo.txt_cli-2.11.0/todo_completion
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -27,38 +21,23 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
 
-source $HOME/apps/zplug/init.zsh
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "changyuheng/fz", defer:1
-zplug "rupa/z", use:z.sh
-zplug "cal2195/q", use:"q.plugin.zsh"
-zplug "jamesob/desk", as:command, use:desk
+export LC_ALL=en_US.UTF-8
 
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-zplug load
+function vi() {
+  case $VIMODE in
+    asciidoc) XDG_CONFIG_HOME=$HOME/.config/vimrcs/asciidoc nvim $@ ;;
+    python) XDG_CONFIG_HOME=$HOME/.config/vimrcs/python nvim $@ ;;
+    *) XDG_CONFIG_HOME=$HOME/.config/vimrcs/text nvim $@ ;;
+  esac
+}
 
-[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-
+eval $(/home/leo/.linuxbrew/bin/brew shellenv)
 eval "$(direnv hook zsh)"
 
-source $HOME/.poetry/env
+show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename $VIRTUAL_ENV)) "
+  fi
+}
+PS1='$(show_virtual_env)'$PS1
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/leo/apps/miniconda3_4.7.11/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/leo/apps/miniconda3_4.7.11/etc/profile.d/conda.sh" ]; then
-        . "/home/leo/apps/miniconda3_4.7.11/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/leo/apps/miniconda3_4.7.11/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<

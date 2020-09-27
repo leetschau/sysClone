@@ -1,12 +1,20 @@
-setxkbmap -option caps:swapescape
+export XMODIFIERS="@im=fcitx"
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export LC_CTYPE=en_US.UTF-8
+export EDITOR=nvim
+
 xbindkeys
-copyq &
-/home/leo/warez/Shadowsocks-Qt5-3.0.0-x86_64.AppImage &
-/home/leo/warez/WizNote-2.5.9-x86_64.AppImage &
-xmodmap -e "pointer = 3 2 1"
+xmodmap -e "poiniter =  3 2 1"
+setxkbmap -option caps:swapescape -option ctrl:swap_lwin_lctl -option ctrl:swap_rwin_rctl
 
 devmon &
-#autokey &
+fcitx &
+copyq &
+goldendict &
+#/home/leo/warez/Shadowsocks-Qt5-3.0.0-x86_64.AppImage &
+
 
 # for i3 on Dell E7450
-# xrandr --output eDP1 --right-of HDMI1 --auto
+xrandr --output HDMI-1 --auto --right-of eDP-1
+

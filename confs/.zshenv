@@ -1,6 +1,6 @@
-# Add user-level app path
-PATH="$PATH:$HOME/.local/bin"
-export ZPLUG_HOME=$HOME/apps/zplug
+PATH="$PATH:$HOME/.local/bin:$HOME/.nimble/bin:/snap/bin"
+PATH="$PATH:$HOME/apps/sysClone/scripts"
+EDITOR=nvim
 
-export SPARK_HOME="$HOME/apps/spark-2.3.0-bin-hadoop2.7"
-export PATH=$PATH:$SPARK_HOME/bin
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
