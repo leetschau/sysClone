@@ -31,6 +31,7 @@ function vi() {
   esac
 }
 
+. $HOME/.asdf/asdf.sh
 eval $(/home/leo/.linuxbrew/bin/brew shellenv)
 eval "$(direnv hook zsh)"
 
