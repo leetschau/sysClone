@@ -3,8 +3,8 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="lichao"
 
 plugins=(alias-finder copydir copyfile command-not-found
-         colored-man-pages git gitfast taskwarrior vi-mode
-         z zsh-autosuggestions zsh-syntax-highlighting)
+         colored-man-pages fasd fzf git gitfast taskwarrior
+         vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -31,8 +31,11 @@ function vi() {
   esac
 }
 
+if [ -f ~/.linuxbrew/bin/brew ]; then
+  eval $(/home/leo/.linuxbrew/bin/brew shellenv)
+fi
+
 . $HOME/.asdf/asdf.sh
-eval $(/home/leo/.linuxbrew/bin/brew shellenv)
 eval "$(direnv hook zsh)"
 
 show_virtual_env() {
@@ -42,3 +45,4 @@ show_virtual_env() {
 }
 PS1='$(show_virtual_env)'$PS1
 
+. /usr/share/doc/fzf/examples/key-bindings.zsh
