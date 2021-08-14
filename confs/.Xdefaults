@@ -5,7 +5,8 @@ URxvt.perl-ext-common: default,keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keyboard-select.clipboard: true
 
-URxvt.font: xft:DejaVu Sans Mono,xft:WenQuanYi Micro Hei Mono:antialias=true
+!URxvt.font: xft:DejaVu Sans Mono:size=14,xft:WenQuanYi Zen Hei:size=18
+URxvt.font: xft:DejaVu Sans Mono:size=10,xft:AR PL UKai TW:antialias=true:size=13
 
 URxvt.background: #000000
 URxvt.foreground: #FFFFFF

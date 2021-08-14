@@ -12,3 +12,5 @@
 	ui = auto
 [core]
 	askpass = git-gui--askpass
+[credential]
+	helper = cache

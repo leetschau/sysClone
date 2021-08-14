@@ -1,11 +1,12 @@
+alias setkbm="setxkbmap -option caps:swapescape -option ctrl:swap_lwin_lctl -option ctrl:swap_rwin_rctl && xmodmap -e 'pointer = 3 2 1'"
+alias d.="desk ."
 alias ts="trans -v"
 alias tk="task"
+alias pd="podman"
 
 alias ra='ranger'
 alias rf='rifle'
 alias hg='stack hoogle -- -i'
-
-alias dn=$HOME/apps/dsnote/donshell.sh
 
 alias gs='git status'
 alias ga='git add -A'
