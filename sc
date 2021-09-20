@@ -3,7 +3,7 @@
 APP_HOME="$HOME/apps"
 CONF_SRC=(".zshrc" ".zshenv" ".bash_aliases" ".vimrc" ".gitconfig"\
   ".tmux.conf" ".xsessionrc" ".fzf.zsh" ".i3/config .i3.config"\
-  ".oh-my-zsh/themes/lichao.zsh-theme lichao.zsh-theme"\
+  ".oh-my-zsh/custom/themes/lichao.zsh-theme lichao.zsh-theme"\
   ".xbindkeysrc" ".config/ranger/rifle.conf rifle.conf"\
   ".Xdefaults" ".config/nvim/init.vim init.vim ")
 PRIVATE_SRC=(".bash_history" ".zsh_history" ".shadowsocks" ".ssh")
